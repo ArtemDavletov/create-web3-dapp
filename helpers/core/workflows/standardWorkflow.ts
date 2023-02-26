@@ -308,7 +308,11 @@ export async function startStandardWorkflow() {
 						inactive: "no",
 					}).then((data) => data.hasAccount);
 					if (typeof hasAccount == "boolean") {
-						open("https://auth.alchemy.com/?a=create-web3-dapp");
+						if (hasAccount == true) {
+							open("https://auth.alchemy.com/?a=create-web3-dapp");
+						} else {
+							open("https://auth.alchemy.com/signup");
+						}
 						step++;
 						break;
 					} else {
